@@ -191,7 +191,7 @@ a { color: inherit; }
 /* Páginas internas */
 .hero-interno {
   min-height: 52vh;
-  padding: 156px 0 86px;
+  padding: 170px 0 86px;
   background: var(--verde-profundo);
   color: var(--marfil);
 }
@@ -398,6 +398,7 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .nav-inner { width: min(100% - 32px, 1280px); }
   .container, .hero-content { width: min(100% - 32px, var(--max)); }
   .section { padding: 70px 0; }
+  .hero-interno { padding-top: 130px; }
   .hero { min-height: 88vh; }
   .hero::before {
     background-image:
