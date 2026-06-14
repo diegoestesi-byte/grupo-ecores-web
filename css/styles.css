@@ -188,6 +188,39 @@ a { color: inherit; }
 
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
+/* Páginas internas */
+.hero-interno {
+  min-height: 52vh;
+  padding: 156px 0 86px;
+  background: var(--verde-profundo);
+  color: var(--marfil);
+}
+
+.hero-interno .label { color: rgba(245,240,231,.58); }
+
+.hero-interno h1 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.08;
+  font-weight: 700;
+  max-width: 780px;
+  margin-bottom: 22px;
+}
+
+.hero-interno p {
+  max-width: 680px;
+  color: rgba(245,240,231,.74);
+  font-size: 17px;
+}
+
+.contenido-interno { background: var(--marfil); }
+
+.contenido-interno p {
+  max-width: 760px;
+  color: var(--texto-medio);
+  font-size: 16px;
+}
+
 /* Presentación */
 .presentacion { background: var(--marfil); }
 .presentacion-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 78px; align-items: center; }
