@@ -879,11 +879,16 @@ a { color: inherit; }
 }
 
 .empresas-recorrido {
+  position: relative;
   background:
     linear-gradient(90deg, rgba(18,60,40,.08) 0 1px, transparent 1px 100%),
     var(--blanco);
   background-size: 82px 82px;
   overflow: hidden;
+}
+
+.empresas-recorrido .container {
+  position: relative;
 }
 
 .empresas-recorrido-head {
@@ -905,38 +910,54 @@ a { color: inherit; }
 
 .empresas-pista {
   position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(460px, 62%);
-  gap: 22px;
+  display: flex;
+  gap: 34px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  padding: 12px 0 28px;
-  scrollbar-color: var(--verde-medio) rgba(18,60,40,.12);
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 18px max(48px, calc((100% - min(860px, 85vw)) / 2)) 34px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.empresas-pista::before {
+.empresas-pista::-webkit-scrollbar {
+  display: none;
+}
+
+.empresas-recorrido .container::before,
+.empresas-recorrido .container::after {
   content: '';
   position: absolute;
+  top: 208px;
+  bottom: 68px;
+  width: min(130px, 12vw);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.empresas-recorrido .container::before {
   left: 0;
+  background: linear-gradient(90deg, var(--blanco) 0%, rgba(255,255,255,.82) 36%, rgba(255,255,255,0) 100%);
+}
+
+.empresas-recorrido .container::after {
   right: 0;
-  top: 49px;
-  height: 1px;
-  background: rgba(18,60,40,.18);
+  background: linear-gradient(270deg, var(--blanco) 0%, rgba(255,255,255,.82) 36%, rgba(255,255,255,0) 100%);
 }
 
 .empresa-panel {
   position: relative;
+  flex: 0 0 min(860px, 85vw);
   min-height: 470px;
   display: grid;
   align-content: end;
-  scroll-snap-align: start;
-  padding: 78px 42px 40px;
+  scroll-snap-align: center;
+  padding: 88px 58px 48px;
   border: 1px solid rgba(18,60,40,.18);
   border-radius: 6px;
   background: rgba(245,240,231,.92);
-  box-shadow: 0 18px 44px rgba(18,60,40,.08);
+  box-shadow: 0 22px 54px rgba(18,60,40,.11);
   overflow: hidden;
 }
 
@@ -955,8 +976,8 @@ a { color: inherit; }
 }
 
 .empresa-panel-imagen {
-  grid-template-columns: .86fr 1.14fr;
-  gap: 34px;
+  grid-template-columns: .82fr 1.18fr;
+  gap: 42px;
   align-items: end;
   background: var(--marfil-oscuro);
 }
@@ -976,8 +997,8 @@ a { color: inherit; }
 
 .empresa-num {
   position: absolute;
-  top: 28px;
-  left: 42px;
+  top: 34px;
+  left: 58px;
   display: grid;
   place-items: center;
   width: 44px;
@@ -1029,7 +1050,7 @@ a { color: inherit; }
 .empresa-panel-final h3 { color: var(--marfil); }
 
 .empresa-panel p:not(.empresa-rubro) {
-  max-width: 650px;
+  max-width: 680px;
   color: var(--texto-medio);
   font-size: 15px;
 }
@@ -1070,19 +1091,59 @@ a { color: inherit; }
 .empresa-panel-destacado li::before,
 .empresa-panel-final li::before { border-color: rgba(245,240,231,.54); }
 
+.empresas-control {
+  position: absolute;
+  top: calc(50% + 68px);
+  z-index: 5;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(18,60,40,.46);
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  color: var(--verde-bosque);
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(18,60,40,.12);
+  transform: translateY(-50%);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.empresas-control:hover {
+  background: var(--verde-claro);
+  border-color: var(--verde-bosque);
+  transform: translateY(-50%) scale(1.04);
+}
+
+.empresas-control:focus-visible {
+  outline: 3px solid rgba(47,104,71,.24);
+  outline-offset: 3px;
+}
+
+.empresas-control.prev { left: 8px; }
+.empresas-control.next { right: 8px; }
+
 .empresas-indicadores {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 8px;
-  margin-top: 10px;
+  max-width: 520px;
+  margin: 8px auto 0;
 }
 
 .empresas-indicadores span {
   height: 3px;
   background: rgba(18,60,40,.16);
+  transition: background .2s ease, transform .2s ease;
 }
 
-.empresas-indicadores span:first-child { background: var(--rojo-ecores); }
+.empresas-indicadores span.active {
+  background: var(--rojo-ecores);
+  transform: scaleY(1.8);
+}
 
 .empresas-integracion {
   background: var(--verde-claro);
@@ -1247,11 +1308,36 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
     left: 50%;
     transform: translateX(-50%) rotate(135deg);
   }
-  .empresas-pista { grid-auto-columns: minmax(360px, 84%); }
-  .empresa-panel { min-height: 440px; padding: 76px 30px 34px; }
+  .empresas-pista {
+    gap: 24px;
+    padding-inline: max(28px, calc((100% - min(760px, 86vw)) / 2));
+  }
+  .empresa-panel {
+    flex-basis: min(760px, 86vw);
+    min-height: 440px;
+    padding: 76px 34px 34px;
+  }
   .empresa-panel-imagen { grid-template-columns: 1fr; }
   .empresa-panel-imagen img { height: 230px; min-height: 230px; }
-  .empresa-num { left: 30px; }
+  .empresa-num { left: 34px; }
+  .empresas-control {
+    top: auto;
+    bottom: 26px;
+    width: 44px;
+    height: 44px;
+    font-size: 29px;
+    transform: none;
+  }
+  .empresas-control:hover { transform: scale(1.04); }
+  .empresas-control.prev { left: calc(50% - 58px); }
+  .empresas-control.next { right: calc(50% - 58px); }
+  .empresas-recorrido .container::before,
+  .empresas-recorrido .container::after {
+    top: 250px;
+    bottom: 98px;
+    width: 42px;
+  }
+  .empresas-indicadores { margin-bottom: 62px; }
   .empresas-integracion-visual { min-height: 480px; }
   .empresas-integracion-visual img { width: 88%; height: 360px; }
   .cifras-grid, .areas-grid, .credenciales-grid { grid-template-columns: 1fr 1fr; }
@@ -1279,16 +1365,27 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .grupo-copy .btn { width: 100%; }
   .hero-empresas { min-height: 58vh; }
   .empresas-pista {
-    grid-auto-columns: minmax(282px, 88%);
-    gap: 14px;
+    gap: 16px;
+    padding: 10px 6vw 28px;
   }
   .empresa-panel {
+    flex-basis: 88vw;
     min-height: auto;
     padding: 76px 24px 30px;
   }
   .empresa-panel-imagen img { height: 190px; min-height: 190px; }
   .empresa-panel h3 { font-size: 31px; }
   .empresa-num { left: 24px; }
+  .empresas-recorrido .container::before,
+  .empresas-recorrido .container::after { display: none; }
+  .empresas-control {
+    width: 40px;
+    height: 40px;
+    font-size: 27px;
+    bottom: 24px;
+  }
+  .empresas-control.prev { left: calc(50% - 52px); }
+  .empresas-control.next { right: calc(50% - 52px); }
   .empresas-indicadores { gap: 5px; }
   .empresas-integracion-visual {
     min-height: auto;
