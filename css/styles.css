@@ -417,66 +417,105 @@ a { color: inherit; }
   border-radius: 50%;
 }
 
-.articulacion-areas {
-  background: var(--verde-bosque);
-  color: var(--marfil);
+.areas-integracion {
+  background: linear-gradient(180deg, var(--blanco) 0%, var(--verde-claro) 100%);
+  color: var(--texto);
+  border-top: 1px solid rgba(18,60,40,.10);
 }
 
-.articulacion-inner {
+.areas-integracion-inner {
   display: grid;
   gap: 52px;
 }
 
-.articulacion-areas .label { color: rgba(245,240,231,.52); }
-.articulacion-areas .titulo { color: var(--marfil); max-width: 760px; }
+.areas-integracion .titulo { color: var(--verde-bosque); max-width: 820px; }
 
-.articulacion-areas p:not(.label) {
+.areas-integracion p {
   max-width: 760px;
-  color: rgba(245,240,231,.72);
+  color: var(--texto-medio);
 }
 
-.flujo-areas {
+.process-line {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border: 1px solid rgba(245,240,231,.18);
+  border: 1px solid rgba(18,60,40,.16);
+  background: rgba(255,255,255,.62);
 }
 
-.flujo-areas li {
+.process-line li {
   position: relative;
   min-height: 104px;
   display: grid;
   place-items: center;
   text-align: center;
   padding: 24px 18px;
-  border-right: 1px solid rgba(245,240,231,.16);
-  color: rgba(245,240,231,.86);
+  border-right: 1px solid rgba(18,60,40,.14);
+  color: var(--verde-bosque);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .11em;
   text-transform: uppercase;
 }
 
-.flujo-areas li:last-child { border-right: 0; }
+.process-line li:last-child { border-right: 0; }
 
-.flujo-areas li::after {
+.process-line li::after {
   content: '';
   position: absolute;
   right: -10px;
   top: 50%;
   width: 19px;
   height: 19px;
-  border-top: 1px solid rgba(245,240,231,.20);
-  border-right: 1px solid rgba(245,240,231,.20);
-  background: var(--verde-bosque);
+  border-top: 1px solid rgba(18,60,40,.18);
+  border-right: 1px solid rgba(18,60,40,.18);
+  background: var(--verde-claro);
   transform: translateY(-50%) rotate(45deg);
   z-index: 2;
 }
 
-.flujo-areas li:last-child::after { display: none; }
+.process-line li:last-child::after { display: none; }
 
-.cierre-areas {
-  border-top: 1px solid rgba(245,240,231,.08);
+.areas-cta {
+  background: var(--marfil);
+  color: var(--texto);
+  text-align: center;
+  padding: 88px 0 96px;
+  border-top: 1px solid rgba(18,60,40,.12);
+}
+
+.areas-cta .container {
+  max-width: 760px;
+}
+
+.areas-cta .titulo {
+  color: var(--verde-bosque);
+  max-width: 660px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.areas-cta p {
+  max-width: 620px;
+  color: var(--texto-medio);
+  margin: 0 auto 34px;
+}
+
+.areas-cta-btns {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cta-light .btn-outline {
+  border-color: rgba(18,60,40,.35);
+  color: var(--verde-bosque);
+}
+
+.cta-light .btn-outline:hover {
+  border-color: var(--verde-bosque);
+  background: rgba(18,60,40,.06);
 }
 
 /* Grupo ECORES */
@@ -848,10 +887,10 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .area-amplia { padding: 68px 0; }
   .area-amplia-meta { position: static; grid-template-columns: auto 1fr; align-items: center; }
   .area-amplia-contenido h2 { grid-column: auto; }
-  .flujo-areas { grid-template-columns: 1fr; }
-  .flujo-areas li { border-right: 0; border-bottom: 1px solid rgba(245,240,231,.16); min-height: 84px; }
-  .flujo-areas li:last-child { border-bottom: 0; }
-  .flujo-areas li::after {
+  .process-line { grid-template-columns: 1fr; }
+  .process-line li { border-right: 0; border-bottom: 1px solid rgba(18,60,40,.14); min-height: 84px; }
+  .process-line li:last-child { border-bottom: 0; }
+  .process-line li::after {
     right: auto;
     top: auto;
     bottom: -10px;
