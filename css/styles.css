@@ -237,6 +237,7 @@ a { color: inherit; }
 
 .grupo-intro { background: var(--marfil); }
 .grupo-plan { background: var(--blanco); }
+.bloque-terreno { background: var(--marfil); }
 .grupo-enfoque { background: var(--verde-bosque); color: var(--marfil); }
 .grupo-trabajo { background: var(--marfil); }
 .grupo-unidades { background: var(--blanco); }
@@ -259,6 +260,35 @@ a { color: inherit; }
 .grupo-copy .btn {
   justify-self: start;
   margin-top: 14px;
+}
+
+.bloque-terreno-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.bloque-terreno-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+}
+
+.bloque-terreno-texto {
+  max-width: 540px;
+}
+
+.bloque-terreno-texto p:not(.label) {
+  color: var(--texto-medio);
+  font-size: 16px;
+}
+
+.bloque-terreno-secundario {
+  margin-top: 18px;
+  color: var(--texto-suave);
 }
 
 .grupo-section-head {
@@ -551,7 +581,8 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .hero-content { grid-template-columns: 1fr; gap: 20px; align-self: end; padding-bottom: 62px; }
   .hero-line { display: none; }
   .hero h1 { font-size: clamp(38px, 11vw, 58px); }
-  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner { grid-template-columns: 1fr; gap: 36px; }
+  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid { grid-template-columns: 1fr; gap: 36px; }
+  .bloque-terreno-texto { max-width: 720px; }
   .grupo-card-grid { grid-template-columns: 1fr 1fr; }
   .grupo-secuencia { grid-template-columns: 1fr; }
   .grupo-secuencia li { border-right: 0; border-bottom: 1px solid var(--piedra); }
