@@ -104,6 +104,8 @@ a { color: inherit; }
 .nav-links a { text-decoration: none; font-size: 13px; font-weight: 500; color: var(--texto-medio); }
 .nav-links a:hover { color: var(--verde-bosque); }
 .nav-cta { padding: 10px 22px; min-height: 42px; font-size: 12px; }
+.nav-links a.nav-cta { color: var(--marfil); }
+.nav-links a.nav-cta:hover { color: var(--blanco); }
 
 /* Hero */
 .hero {
@@ -1808,6 +1810,8 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
 .footer-col ul { list-style: none; display: grid; gap: 10px; }
 .footer-col a { text-decoration: none; font-size: 13px; color: rgba(245,240,231,.54); }
 .footer-col a:hover { color: var(--marfil); }
+.footer-col a.social-link { display: inline-flex; align-items: center; gap: 8px; }
+.social-link svg { width: 14px; height: 14px; flex: 0 0 14px; stroke: currentColor; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 24px; padding-top: 26px; font-size: 11px; color: rgba(245,240,231,.28); }
 
 @media (max-width: 980px) {
