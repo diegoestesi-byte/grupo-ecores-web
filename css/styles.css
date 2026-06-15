@@ -952,10 +952,9 @@ a { color: inherit; }
   min-height: 48vh;
   padding: 146px 0 64px;
   background:
-    linear-gradient(105deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.88) 54%, rgba(183,42,32,.38) 100%),
-    url('../assets/img/bosque-intervenido.webp');
-  background-size: cover;
-  background-position: center;
+    linear-gradient(105deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.86) 46%, rgba(11,36,24,.36) 74%, rgba(11,36,24,.18) 100%),
+    url('../assets/img/empresas_hero1.webp');
+  background-position: center center;
 }
 
 .hero-empresas h1 { max-width: 940px; }
@@ -1722,27 +1721,48 @@ a { color: inherit; }
   background: rgba(18,60,40,.06);
 }
 
+.hero-experiencia {
+  min-height: 48vh;
+  padding: 146px 0 64px;
+  background:
+    linear-gradient(105deg, rgba(11,36,24,.95) 0%, rgba(18,60,40,.84) 48%, rgba(18,60,40,.40) 78%, rgba(11,36,24,.22) 100%),
+    url('../assets/img/experiencia_hero1.webp');
+  background-position: center 52%;
+}
+
+.hero-experiencia h1 { max-width: 800px; }
+.hero-experiencia p:not(.label) { max-width: 700px; font-size: 18px; }
+
 /* Contacto + Footer */
 .hero-contacto {
   min-height: 46vh;
   background:
-    linear-gradient(135deg, rgba(233,240,234,.96) 0%, rgba(245,240,231,.92) 58%, rgba(255,255,255,.98) 100%);
-  color: var(--texto);
+    linear-gradient(105deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.86) 46%, rgba(18,60,40,.42) 76%, rgba(11,36,24,.20) 100%),
+    url('../assets/img/contacto_hero1.webp');
+  background-position: center 44%;
+  color: var(--marfil);
   border-bottom: 1px solid rgba(18,60,40,.10);
 }
 
 .hero-contacto .label {
-  color: var(--verde-medio);
+  color: rgba(245,240,231,.62);
 }
 
 .hero-contacto h1 {
   max-width: 720px;
-  color: var(--verde-bosque);
+  color: var(--marfil);
 }
 
 .hero-contacto p {
   max-width: 690px;
-  color: var(--texto-medio);
+  color: rgba(245,240,231,.78);
+}
+
+.hero-empresas,
+.hero-experiencia,
+.hero-contacto {
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .contacto-principal {
@@ -1944,6 +1964,9 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .container, .hero-content { width: min(100% - 32px, var(--max)); }
   .section { padding: 70px 0; }
   .hero-interno { padding-top: 130px; }
+  .hero-empresas { background-position: 58% center; }
+  .hero-experiencia { background-position: center center; }
+  .hero-contacto { background-position: 58% center; }
   .hero { min-height: 84vh; }
   .hero::before {
     background-image:
@@ -2169,6 +2192,7 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
     border: 0;
   }
   .hero-empresas { min-height: auto; padding: 118px 0 48px; }
+  .hero-experiencia { min-height: auto; padding: 118px 0 48px; }
   .empresas-recorrido { padding-top: 56px; }
   .empresas-pista {
     gap: 16px;
