@@ -1305,6 +1305,297 @@ a { color: inherit; }
   color: rgba(245,240,231,.72);
 }
 
+/* Experiencia */
+.experiencia-intro {
+  background: var(--marfil);
+  border-bottom: 1px solid rgba(18,60,40,.10);
+}
+
+.experiencia-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(280px, .62fr);
+  gap: 64px;
+  align-items: end;
+}
+
+.experiencia-intro-grid .titulo {
+  margin-bottom: 0;
+  max-width: 720px;
+}
+
+.experiencia-intro-grid p {
+  color: var(--texto-medio);
+  font-size: 16px;
+  border-left: 2px solid var(--rojo-ecores);
+  padding-left: 22px;
+}
+
+.experiencias-casos {
+  background: var(--blanco);
+}
+
+.caso-card {
+  border: 1px solid rgba(18,60,40,.16);
+  border-radius: 8px;
+  background: var(--marfil);
+  overflow: hidden;
+  box-shadow: 0 22px 54px rgba(18,60,40,.09);
+}
+
+.caso-card-destacado {
+  display: grid;
+  grid-template-columns: minmax(320px, .82fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.caso-imagen {
+  min-height: 100%;
+  background: var(--verde-claro);
+}
+
+.caso-imagen img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+}
+
+.caso-contenido {
+  padding: 46px 48px;
+}
+
+.caso-etiqueta {
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 13px;
+  border: 1px solid rgba(183,42,32,.24);
+  border-radius: 999px;
+  background: rgba(255,255,255,.48);
+  color: var(--rojo-ecores);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.caso-contenido h2 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.1;
+  color: var(--verde-bosque);
+  margin-bottom: 24px;
+}
+
+.caso-meta {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.caso-meta div {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(18,60,40,.14);
+}
+
+.caso-meta dt {
+  color: var(--verde-medio);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.caso-meta dd,
+.caso-resumen {
+  color: var(--texto-medio);
+  font-size: 14.5px;
+}
+
+.caso-resumen {
+  margin-bottom: 24px;
+}
+
+.caso-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 30px;
+}
+
+.caso-chips span {
+  padding: 8px 13px;
+  border: 1px solid rgba(18,60,40,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.62);
+  color: var(--verde-bosque);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.caso-toggle {
+  border: 0;
+  cursor: pointer;
+}
+
+.caso-toggle:focus-visible {
+  outline: 3px solid rgba(47,104,71,.24);
+  outline-offset: 3px;
+}
+
+.caso-panel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-rows: 0fr;
+  background: var(--blanco);
+  border-top: 1px solid rgba(18,60,40,.12);
+  opacity: 0;
+  transition: grid-template-rows .42s ease, opacity .32s ease;
+}
+
+.caso-card.is-open .caso-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.caso-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 0 48px;
+  transition: padding .42s ease;
+}
+
+.caso-card.is-open .caso-panel-inner {
+  padding-top: 38px;
+  padding-bottom: 42px;
+}
+
+.caso-panel-bloque {
+  padding: 28px;
+  border: 1px solid rgba(18,60,40,.14);
+  border-radius: 6px;
+  background: var(--marfil);
+}
+
+.caso-panel-bloque h3 {
+  margin-bottom: 12px;
+  color: var(--verde-bosque);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.caso-panel-bloque p {
+  color: var(--texto-medio);
+  font-size: 14px;
+}
+
+.caso-panel-empresas {
+  grid-column: 1 / -1;
+}
+
+.empresa-bloques {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.empresa-bloques div {
+  min-height: 150px;
+  padding: 20px;
+  border: 1px solid rgba(18,60,40,.12);
+  border-radius: 6px;
+  background: rgba(255,255,255,.68);
+}
+
+.empresa-bloques h4 {
+  margin-bottom: 10px;
+  color: var(--verde-bosque);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.caso-aprendizaje {
+  grid-column: 1 / -1;
+  background: var(--verde-claro);
+}
+
+.casos-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.caso-placeholder {
+  min-height: 190px;
+  padding: 34px;
+  border: 1px solid rgba(18,60,40,.16);
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--blanco), var(--verde-claro));
+}
+
+.caso-placeholder p {
+  margin-bottom: 14px;
+  color: var(--verde-medio);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.caso-placeholder h3 {
+  max-width: 430px;
+  color: var(--verde-bosque);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 28px;
+  line-height: 1.16;
+}
+
+.experiencia-cierre {
+  background: var(--marfil);
+  text-align: center;
+}
+
+.experiencia-cierre .container {
+  max-width: 800px;
+}
+
+.experiencia-cierre .titulo {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experiencia-cierre p {
+  max-width: 660px;
+  margin: 0 auto 34px;
+  color: var(--texto-medio);
+}
+
+.experiencia-cierre-btns {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.experiencia-cierre .btn-outline {
+  border-color: rgba(18,60,40,.35);
+  color: var(--verde-bosque);
+}
+
+.experiencia-cierre .btn-outline:hover {
+  border-color: var(--verde-bosque);
+  background: rgba(18,60,40,.06);
+}
+
 /* Contacto + Footer */
 .contacto { background: var(--verde-bosque); color: var(--marfil); text-align: center; padding: 105px 0; }
 .contacto .label { color: rgba(245,240,231,.50); }
@@ -1339,6 +1630,27 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .hero-line { display: none; }
   .hero h1 { font-size: clamp(38px, 11vw, 58px); }
   .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid, .mapa-capacidades-head, .area-amplia-grid, .area-amplia-contenido, .empresas-recorrido-head { grid-template-columns: 1fr; gap: 36px; }
+  .experiencia-intro-grid,
+  .caso-card-destacado {
+    grid-template-columns: 1fr;
+  }
+  .experiencia-intro-grid {
+    gap: 28px;
+  }
+  .caso-imagen img {
+    min-height: 320px;
+    max-height: 430px;
+  }
+  .caso-contenido {
+    padding: 36px 34px;
+  }
+  .caso-panel-inner {
+    grid-template-columns: 1fr;
+    padding-inline: 34px;
+  }
+  .empresa-bloques {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .mapa-capacidades-esquema { grid-template-columns: 1fr 1fr; }
   .mapa-capacidades-esquema::before { display: none; }
   .capacidad-nodo { min-height: 220px; border-bottom: 1px solid rgba(18,60,40,.16); }
@@ -1426,6 +1738,42 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .nav { height: 66px; }
   .hero { padding-top: 66px; }
   .hero-actions .btn { width: 100%; }
+  .experiencia-intro-grid p {
+    padding-left: 16px;
+  }
+  .caso-contenido {
+    padding: 30px 24px;
+  }
+  .caso-meta div,
+  .empresa-bloques,
+  .casos-placeholder-grid {
+    grid-template-columns: 1fr;
+  }
+  .caso-meta div {
+    gap: 6px;
+  }
+  .caso-toggle,
+  .experiencia-cierre-btns .btn {
+    width: 100%;
+  }
+  .caso-panel-inner {
+    padding-inline: 20px;
+    gap: 14px;
+  }
+  .caso-card.is-open .caso-panel-inner {
+    padding-top: 24px;
+    padding-bottom: 26px;
+  }
+  .caso-panel-bloque,
+  .caso-placeholder {
+    padding: 24px;
+  }
+  .caso-placeholder {
+    min-height: 160px;
+  }
+  .caso-placeholder h3 {
+    font-size: 24px;
+  }
   .grupo-card-grid, .cifras-grid, .areas-grid, .credenciales-grid, .footer-grid, .mapa-capacidades-esquema, .capacidad-lista { grid-template-columns: 1fr; }
   .mapa-capacidades-head { margin-bottom: 36px; }
   .capacidad-nodo,
