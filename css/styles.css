@@ -933,105 +933,134 @@ a { color: inherit; }
 .empresa-panel {
   position: relative;
   flex: 0 0 min(860px, 85vw);
-  min-height: 470px;
+  min-height: 430px;
   display: grid;
-  align-content: end;
+  align-content: stretch;
   scroll-snap-align: center;
-  padding: 88px 58px 48px;
+  padding: 42px 58px 46px;
   border: 1px solid rgba(18,60,40,.18);
   border-radius: 6px;
-  background: rgba(245,240,231,.92);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(245,240,231,.82)),
+    var(--blanco);
   box-shadow: 0 22px 54px rgba(18,60,40,.11);
   overflow: hidden;
+  --empresa-acento: var(--verde-salvia);
+  --empresa-acento-borde: rgba(94,138,110,.42);
+  --empresa-acento-suave: rgba(94,138,110,.14);
 }
 
+.empresa-panel::before,
 .empresa-panel::after {
   content: '';
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 5px;
-  background: linear-gradient(180deg, var(--rojo-ecores), var(--verde-salvia));
-  opacity: .9;
+  pointer-events: none;
 }
 
-.empresa-panel-destacado {
-  background: var(--verde-bosque);
-  color: var(--marfil);
+.empresa-panel::before {
+  inset: 0 0 auto;
+  height: 6px;
+  background: var(--empresa-acento);
 }
 
-.empresa-panel-imagen {
-  grid-template-columns: .82fr 1.18fr;
-  gap: 42px;
-  align-items: end;
-  background: var(--marfil-oscuro);
+.empresa-panel::after {
+  inset: 6px auto 0 0;
+  width: 1px;
+  background: linear-gradient(180deg, var(--empresa-acento), rgba(18,60,40,0));
+  opacity: .55;
 }
 
-.empresa-panel-final {
-  background: linear-gradient(135deg, var(--verde-profundo), var(--verde-bosque));
-  color: var(--marfil);
+.empresa-panel-huge {
+  --empresa-acento: #A8C65F;
+  --empresa-acento-borde: rgba(168,198,95,.48);
+  --empresa-acento-suave: rgba(168,198,95,.18);
 }
 
-.empresa-panel-imagen > img {
-  width: 100%;
-  height: 100%;
-  min-height: 310px;
-  object-fit: cover;
-  border-radius: 4px;
+.empresa-panel-nothofagus {
+  --empresa-acento: #BE6D58;
+  --empresa-acento-borde: rgba(190,109,88,.42);
+  --empresa-acento-suave: rgba(190,109,88,.14);
 }
 
-.empresa-num {
-  position: absolute;
-  top: 34px;
-  left: 58px;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(18,60,40,.28);
-  border-radius: 50%;
-  background: rgba(255,255,255,.46);
-  color: var(--verde-bosque);
-  font-size: 12px;
-  font-weight: 700;
-  z-index: 1;
+.empresa-panel-vivero {
+  --empresa-acento: #5F9A55;
+  --empresa-acento-borde: rgba(95,154,85,.46);
+  --empresa-acento-suave: rgba(95,154,85,.16);
 }
 
-.empresa-panel-destacado .empresa-num,
-.empresa-panel-final .empresa-num {
-  border-color: rgba(245,240,231,.32);
-  background: rgba(245,240,231,.10);
-  color: var(--marfil);
+.empresa-panel-ecores {
+  --empresa-acento: var(--verde-bosque);
+  --empresa-acento-borde: rgba(18,60,40,.34);
+  --empresa-acento-secundario: var(--rojo-ecores);
+  --empresa-acento-suave: rgba(18,60,40,.12);
+}
+
+.empresa-panel-ecores::before {
+  background: linear-gradient(90deg, var(--verde-bosque) 0 82%, var(--rojo-ecores) 82% 100%);
+}
+
+.empresa-panel-ciires {
+  --empresa-acento: #4C8667;
+  --empresa-acento-borde: rgba(76,134,103,.44);
+  --empresa-acento-suave: rgba(76,134,103,.16);
 }
 
 .empresa-panel-contenido {
   position: relative;
   z-index: 1;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.empresa-card-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.empresa-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid var(--empresa-acento-borde);
+  border-radius: 999px;
+  background: var(--empresa-acento-suave);
+  color: var(--verde-bosque);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .empresa-logo-box {
-  width: fit-content;
-  max-width: min(280px, 100%);
-  min-height: 92px;
+  width: 250px;
+  height: 98px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
-  padding: 16px 20px;
+  flex: 0 0 auto;
+  padding: 16px 22px;
   border: 1px solid rgba(18,60,40,.12);
   border-radius: 6px;
-  background: rgba(255,255,255,.92);
-  box-shadow: 0 12px 28px rgba(18,60,40,.10);
+  background: rgba(255,255,255,.90);
+  box-shadow: 0 12px 28px rgba(18,60,40,.08);
 }
 
 .empresa-logo {
-  width: auto;
-  max-width: 230px;
-  height: clamp(56px, 6vw, 76px);
+  width: 100%;
+  max-width: 210px;
+  height: 66px;
   object-fit: contain;
 }
 
 .empresa-rubro {
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: var(--verde-medio);
   font-size: 11px;
   font-weight: 700;
@@ -1039,21 +1068,13 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-.empresa-panel-destacado .empresa-rubro,
-.empresa-panel-final .empresa-rubro {
-  color: rgba(245,240,231,.62);
-}
-
 .empresa-panel h3 {
   font-family: 'Lora', Georgia, serif;
-  font-size: clamp(30px, 4vw, 50px);
+  font-size: clamp(30px, 4vw, 48px);
   line-height: 1.04;
   color: var(--verde-bosque);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
-
-.empresa-panel-destacado h3,
-.empresa-panel-final h3 { color: var(--marfil); }
 
 .empresa-panel p:not(.empresa-rubro) {
   max-width: 680px;
@@ -1061,16 +1082,14 @@ a { color: inherit; }
   font-size: 15px;
 }
 
-.empresa-panel-destacado p:not(.empresa-rubro),
-.empresa-panel-final p:not(.empresa-rubro) {
-  color: rgba(245,240,231,.74);
-}
-
 .empresa-rol {
   max-width: 680px;
-  margin-top: 26px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(18,60,40,.16);
+  margin-top: 24px;
+  padding: 20px 22px;
+  border: 1px solid rgba(18,60,40,.12);
+  border-left: 5px solid var(--empresa-acento);
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--empresa-acento-suave), rgba(233,240,234,.58));
 }
 
 .empresa-rol h4 {
@@ -1084,16 +1103,6 @@ a { color: inherit; }
 
 .empresa-rol p {
   font-size: 14px;
-}
-
-.empresa-panel-destacado .empresa-rol,
-.empresa-panel-final .empresa-rol {
-  border-top-color: rgba(245,240,231,.18);
-}
-
-.empresa-panel-destacado .empresa-rol h4,
-.empresa-panel-final .empresa-rol h4 {
-  color: var(--marfil);
 }
 
 .empresa-panel ul {
@@ -1120,12 +1129,6 @@ a { color: inherit; }
   border-radius: 50%;
   border: 1px solid var(--verde-medio);
 }
-
-.empresa-panel-destacado li,
-.empresa-panel-final li { color: rgba(245,240,231,.70); }
-
-.empresa-panel-destacado li::before,
-.empresa-panel-final li::before { border-color: rgba(245,240,231,.54); }
 
 .empresas-control {
   position: absolute;
@@ -1910,21 +1913,22 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   }
   .empresa-panel {
     flex-basis: min(760px, 86vw);
-    min-height: 440px;
-    padding: 76px 34px 34px;
+    min-height: 410px;
+    padding: 36px 34px 34px;
   }
-  .empresa-panel-imagen { grid-template-columns: 1fr; }
-  .empresa-panel-imagen > img { height: 230px; min-height: 230px; }
-  .empresa-logo-box {
-    min-height: 84px;
+  .empresa-card-head {
+    gap: 14px;
     margin-bottom: 20px;
+  }
+  .empresa-logo-box {
+    width: 220px;
+    height: 86px;
     padding: 14px 18px;
   }
   .empresa-logo {
-    max-width: 210px;
-    height: 64px;
+    max-width: 190px;
+    height: 58px;
   }
-  .empresa-num { left: 34px; }
   .empresas-control {
     top: auto;
     bottom: 26px;
@@ -2033,20 +2037,33 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .empresa-panel {
     flex-basis: 88vw;
     min-height: auto;
-    padding: 76px 24px 30px;
+    padding: 32px 24px 30px;
   }
-  .empresa-panel-imagen > img { height: 190px; min-height: 190px; }
-  .empresa-logo-box {
-    min-height: 74px;
+  .empresa-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
     margin-bottom: 18px;
+  }
+  .empresa-logo-box {
+    width: min(210px, 100%);
+    height: 78px;
     padding: 12px 15px;
   }
   .empresa-logo {
-    max-width: min(190px, 100%);
-    height: 54px;
+    max-width: 180px;
+    height: 50px;
   }
   .empresa-panel h3 { font-size: 31px; }
-  .empresa-num { left: 24px; }
+  .empresa-num {
+    min-height: 30px;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+  .empresa-rol {
+    margin-top: 20px;
+    padding: 18px;
+  }
   .empresas-recorrido .container::before,
   .empresas-recorrido .container::after { display: none; }
   .empresas-control {
