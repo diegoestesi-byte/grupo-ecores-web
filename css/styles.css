@@ -906,14 +906,49 @@ a { color: inherit; }
 .proyecto-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 78px; align-items: center; }
 .proyecto-texto p { color: var(--texto-medio); margin-bottom: 30px; }
 
-/* Credenciales */
-.credenciales { background: var(--blanco); border-top: 1px solid var(--piedra); }
-.credenciales-head { text-align: center; margin-bottom: 48px; }
-.credenciales-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 42px; }
-.credencial { border-left: 3px solid var(--verde-salvia); padding: 18px 24px; }
-.credencial-tag { width: 38px; height: 38px; border-radius: 50%; background: var(--marfil); display: grid; place-items: center; color: var(--verde-bosque); font-weight: 700; margin-bottom: 14px; }
-.credencial-titulo { font-family: 'Lora', Georgia, serif; color: var(--verde-bosque); font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
-.credencial-texto { color: var(--texto-medio); font-size: 13.5px; }
+/* SER */
+.home-ser {
+  background: linear-gradient(180deg, var(--blanco) 0%, var(--verde-claro) 100%);
+  border-top: 1px solid rgba(18,60,40,.10);
+}
+
+.home-ser-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, .72fr);
+  gap: 72px;
+  align-items: center;
+}
+
+.home-ser-texto {
+  max-width: 720px;
+}
+
+.home-ser-texto p:not(.label) {
+  color: var(--texto-medio);
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.home-ser-secundario {
+  padding-left: 22px;
+  border-left: 3px solid var(--verde-salvia);
+}
+
+.ser-logo-box {
+  display: grid;
+  place-items: center;
+  min-height: 260px;
+  padding: 46px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(18,60,40,.12);
+  box-shadow: 0 24px 60px rgba(18,60,40,.08);
+}
+
+.ser-logo {
+  width: min(240px, 100%);
+  max-height: 150px;
+  object-fit: contain;
+}
 
 /* Empresas */
 .hero-empresas {
@@ -1922,7 +1957,7 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .hero-content { grid-template-columns: 1fr; gap: 20px; align-self: end; padding-bottom: 62px; }
   .hero-line { display: none; }
   .hero h1 { font-size: clamp(38px, 11vw, 58px); }
-  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid, .mapa-capacidades-head, .area-amplia-grid, .area-amplia-contenido, .empresas-recorrido-head { grid-template-columns: 1fr; gap: 36px; }
+  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .home-ser-grid, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid, .mapa-capacidades-head, .area-amplia-grid, .area-amplia-contenido, .empresas-recorrido-head { grid-template-columns: 1fr; gap: 36px; }
   .experiencia-intro-grid,
   .caso-card-destacado {
     grid-template-columns: 1fr;
@@ -2031,7 +2066,11 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .ejecucion { right: 58px; }
   .monitoreo { left: 58px; }
   .innovacion { left: 0; }
-  .cifras-grid, .areas-grid, .credenciales-grid { grid-template-columns: 1fr 1fr; }
+  .cifras-grid, .areas-grid { grid-template-columns: 1fr 1fr; }
+  .ser-logo-box {
+    min-height: 220px;
+    padding: 38px;
+  }
   .ecosistema-circular { display: block; min-height: auto; }
   .ecosistema-orbita { display: none; }
   .ecosistema-centro { margin: 0 auto 28px; width: 220px; min-height: 220px; }
@@ -2084,7 +2123,18 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .caso-placeholder h3 {
     font-size: 24px;
   }
-  .grupo-card-grid, .cifras-grid, .areas-grid, .credenciales-grid, .footer-grid, .mapa-capacidades-esquema, .capacidad-lista { grid-template-columns: 1fr; }
+  .grupo-card-grid, .cifras-grid, .areas-grid, .footer-grid, .mapa-capacidades-esquema, .capacidad-lista { grid-template-columns: 1fr; }
+  .home-ser-secundario {
+    padding-left: 18px;
+  }
+  .ser-logo-box {
+    min-height: 190px;
+    padding: 30px;
+  }
+  .ser-logo {
+    width: min(210px, 100%);
+    max-height: 130px;
+  }
   .contacto-formulario,
   .contacto-card,
   .contacto-orientacion { padding: 26px; }
