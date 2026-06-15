@@ -847,7 +847,8 @@ a { color: inherit; }
 
 /* Empresas */
 .hero-empresas {
-  min-height: 62vh;
+  min-height: 48vh;
+  padding: 146px 0 64px;
   background:
     linear-gradient(105deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.88) 54%, rgba(183,42,32,.38) 100%),
     url('../assets/img/bosque-intervenido.webp');
@@ -858,28 +859,9 @@ a { color: inherit; }
 .hero-empresas h1 { max-width: 940px; }
 .hero-empresas p:not(.label) { max-width: 740px; font-size: 18px; }
 
-.empresas-intro {
-  background: var(--marfil);
-  border-bottom: 1px solid rgba(18,60,40,.12);
-}
-
-.empresas-intro-grid {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 70px;
-  align-items: start;
-}
-
-.empresas-intro-grid .titulo { max-width: 820px; }
-
-.empresas-intro-grid p:not(.label) {
-  max-width: 790px;
-  color: var(--texto-medio);
-  font-size: 16px;
-}
-
 .empresas-recorrido {
   position: relative;
+  padding: 72px 0 88px;
   background:
     linear-gradient(90deg, rgba(18,60,40,.08) 0 1px, transparent 1px 100%),
     var(--blanco);
@@ -1277,7 +1259,7 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .hero-content { grid-template-columns: 1fr; gap: 20px; align-self: end; padding-bottom: 62px; }
   .hero-line { display: none; }
   .hero h1 { font-size: clamp(38px, 11vw, 58px); }
-  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid, .mapa-capacidades-head, .area-amplia-grid, .area-amplia-contenido, .empresas-intro-grid, .empresas-recorrido-head, .empresas-integracion-grid { grid-template-columns: 1fr; gap: 36px; }
+  .presentacion-grid, .areas-header, .sectores-inner, .proyecto-inner, .grupo-texto-grid, .grupo-unidades-inner, .bloque-terreno-grid, .mapa-capacidades-head, .area-amplia-grid, .area-amplia-contenido, .empresas-recorrido-head, .empresas-integracion-grid { grid-template-columns: 1fr; gap: 36px; }
   .mapa-capacidades-esquema { grid-template-columns: 1fr 1fr; }
   .mapa-capacidades-esquema::before { display: none; }
   .capacidad-nodo { min-height: 220px; border-bottom: 1px solid rgba(18,60,40,.16); }
@@ -1363,7 +1345,8 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .area-amplia-icono { width: 62px; height: 62px; }
   .grupo-card { min-height: auto; }
   .grupo-copy .btn { width: 100%; }
-  .hero-empresas { min-height: 58vh; }
+  .hero-empresas { min-height: auto; padding: 118px 0 48px; }
+  .empresas-recorrido { padding-top: 56px; }
   .empresas-pista {
     gap: 16px;
     padding: 10px 6vw 28px;
