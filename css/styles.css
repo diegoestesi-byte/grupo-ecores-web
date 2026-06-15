@@ -524,7 +524,10 @@ a { color: inherit; }
 .hero-grupo {
   min-height: 58vh;
   background:
-    linear-gradient(110deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.88) 58%, rgba(47,104,71,.72) 100%);
+    linear-gradient(110deg, rgba(11,36,24,.96) 0%, rgba(18,60,40,.88) 58%, rgba(47,104,71,.72) 100%),
+    url('../assets/img/foto1_quienes_somos.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-grupo h1 { max-width: 880px; }
@@ -545,22 +548,12 @@ a { color: inherit; }
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background:
-    linear-gradient(105deg, rgba(11,36,24,.95) 0%, rgba(18,60,40,.88) 48%, rgba(47,104,71,.62) 100%),
-    url('../assets/img/foto1_quienes_somos.webp');
-  background-size: cover;
-  background-position: center;
-  color: var(--marfil);
+  background: var(--marfil);
+  color: var(--texto);
 }
 
 .quienes-card-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(11,36,24,.28), rgba(11,36,24,.08)),
-    radial-gradient(circle at 88% 18%, rgba(94,138,110,.24), transparent 34%);
-  z-index: -1;
+  content: none;
 }
 
 .quienes-card-bg .container {
@@ -569,15 +562,15 @@ a { color: inherit; }
 }
 
 .quienes-card-bg .label {
-  color: rgba(245,240,231,.68);
+  color: var(--verde-medio);
 }
 
 .quienes-card-bg .titulo {
-  color: var(--marfil);
+  color: var(--verde-bosque);
 }
 
 .quienes-card-bg .grupo-copy {
-  color: rgba(245,240,231,.82);
+  color: var(--texto-medio);
 }
 
 .grupo-texto-grid,
