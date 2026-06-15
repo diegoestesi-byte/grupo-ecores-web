@@ -1042,6 +1042,36 @@ a { color: inherit; }
   color: rgba(245,240,231,.74);
 }
 
+.empresa-rol {
+  max-width: 680px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(18,60,40,.16);
+}
+
+.empresa-rol h4 {
+  margin-bottom: 8px;
+  color: var(--verde-bosque);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.empresa-rol p {
+  font-size: 14px;
+}
+
+.empresa-panel-destacado .empresa-rol,
+.empresa-panel-final .empresa-rol {
+  border-top-color: rgba(245,240,231,.18);
+}
+
+.empresa-panel-destacado .empresa-rol h4,
+.empresa-panel-final .empresa-rol h4 {
+  color: var(--marfil);
+}
+
 .empresa-panel ul {
   list-style: none;
   display: grid;
