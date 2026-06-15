@@ -30,18 +30,93 @@
   </header>
 
   <main>
-    <section class="hero-interno">
+    <section class="hero-interno hero-contacto">
       <div class="container">
         <p class="label">Contacto</p>
-        <h1>Conversemos sobre tu proyecto ambiental.</h1>
-        <p>Cuéntanos qué necesitas y podremos orientar la conversación hacia la empresa o combinación de capacidades más adecuada dentro del grupo.</p>
+        <h1>Conversemos sobre tu proyecto</h1>
+        <p>Cuéntanos qué necesitas y te orientaremos hacia la empresa o capacidad más adecuada dentro de Grupo ECORES.</p>
       </div>
     </section>
 
-    <section class="contenido-interno section">
+    <section class="contacto-principal section">
       <div class="container">
-        <h2 class="titulo">Contenido provisorio</h2>
-        <p>Esta página incorporará el formulario de contacto, datos comerciales, canales directos y la información necesaria para iniciar una conversación con Grupo ECORES.</p>
+        <div class="contacto-grid">
+          <div class="contacto-formulario">
+            <form action="#" method="post">
+              <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" autocomplete="name">
+              </div>
+              <div class="campo">
+                <label for="empresa">Empresa / institución</label>
+                <input type="text" id="empresa" name="empresa" autocomplete="organization">
+              </div>
+              <div class="campo">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" autocomplete="email">
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+              </div>
+              <div class="campo campo-completo">
+                <label for="tipo-consulta">Tipo de consulta</label>
+                <select id="tipo-consulta" name="tipo-consulta">
+                  <option value="">Selecciona una opción</option>
+                  <option>Restauración o reforestación</option>
+                  <option>Estudios, monitoreo o planes de manejo</option>
+                  <option>Producción de plantas nativas</option>
+                  <option>Proyecto o alianza con Huge Forest</option>
+                  <option>Investigación o colaboración con CiiRES</option>
+                  <option>Otra consulta</option>
+                </select>
+              </div>
+              <div class="campo campo-completo">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="7"></textarea>
+              </div>
+              <button class="btn btn-verde contacto-submit" type="submit">Enviar consulta</button>
+            </form>
+          </div>
+
+          <aside class="contacto-lateral" aria-label="Datos de contacto">
+            <div class="contacto-card">
+              <h2>Canales de contacto</h2>
+              <dl class="contacto-datos">
+                <div>
+                  <dt>Correo</dt>
+                  <dd><a href="mailto:contacto@grupoecores.cl">contacto@grupoecores.cl</a></dd>
+                </div>
+                <div>
+                  <dt>Teléfono / WhatsApp</dt>
+                  <dd><a href="tel:+56900000000">+56 9 0000 0000</a></dd>
+                </div>
+                <div>
+                  <dt>Ubicación</dt>
+                  <dd>Linares, Región del Maule, Chile</dd>
+                </div>
+                <div>
+                  <dt>Redes</dt>
+                  <dd class="contacto-redes">
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="contacto-orientacion">
+              <h2>¿No sabes por dónde comenzar?</h2>
+              <p>Si no tienes claro qué unidad del grupo corresponde a tu requerimiento, escríbenos de todas formas. Podemos ayudarte a identificar si tu proyecto requiere apoyo técnico, producción vegetal, ejecución en terreno, investigación aplicada o una respuesta integrada.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacto-cierre">
+      <div class="container">
+        <p>Grupo ECORES articula soluciones para proyectos ambientales que requieren planificación, respaldo técnico y capacidad de ejecución.</p>
       </div>
     </section>
   </main>
