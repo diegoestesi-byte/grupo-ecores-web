@@ -541,6 +541,45 @@ a { color: inherit; }
 .grupo-trabajo { background: var(--marfil); }
 .grupo-unidades { background: var(--blanco); }
 
+.quienes-card-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    linear-gradient(105deg, rgba(11,36,24,.95) 0%, rgba(18,60,40,.88) 48%, rgba(47,104,71,.62) 100%),
+    url('../assets/img/foto1_quienes_somos.webp');
+  background-size: cover;
+  background-position: center;
+  color: var(--marfil);
+}
+
+.quienes-card-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11,36,24,.28), rgba(11,36,24,.08)),
+    radial-gradient(circle at 88% 18%, rgba(94,138,110,.24), transparent 34%);
+  z-index: -1;
+}
+
+.quienes-card-bg .container {
+  position: relative;
+  z-index: 1;
+}
+
+.quienes-card-bg .label {
+  color: rgba(245,240,231,.68);
+}
+
+.quienes-card-bg .titulo {
+  color: var(--marfil);
+}
+
+.quienes-card-bg .grupo-copy {
+  color: rgba(245,240,231,.82);
+}
+
 .grupo-texto-grid,
 .grupo-unidades-inner {
   display: grid;
@@ -574,6 +613,35 @@ a { color: inherit; }
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
+}
+
+.quienes-mosaico {
+  position: relative;
+  min-height: 520px;
+}
+
+.quienes-mosaico img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 18px 45px rgba(18,60,40,.16);
+}
+
+.quienes-mosaico .quienes-mosaico-principal {
+  width: 76%;
+  aspect-ratio: 3 / 4;
+  object-position: center;
+}
+
+.quienes-mosaico .quienes-mosaico-secundaria {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
+  width: 54%;
+  aspect-ratio: 4 / 3;
+  border: 10px solid var(--marfil);
+  object-position: center;
 }
 
 .bloque-terreno-texto {
@@ -690,7 +758,7 @@ a { color: inherit; }
   font-size: 16px;
 }
 
-.grupo-cierre { border-top: 1px solid rgba(245,240,231,.08); }
+.grupo-cta { border-top: 1px solid rgba(245,240,231,.08); }
 
 /* Presentación */
 .presentacion { background: var(--marfil); }
@@ -1895,6 +1963,10 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
     transform: translateX(-50%) rotate(135deg);
   }
   .bloque-terreno-texto { max-width: 720px; }
+  .quienes-mosaico {
+    width: min(680px, 100%);
+    min-height: 560px;
+  }
   .grupo-card-grid { grid-template-columns: 1fr 1fr; }
   .grupo-secuencia { grid-template-columns: 1fr; }
   .grupo-secuencia li { border-right: 0; border-bottom: 1px solid var(--piedra); }
@@ -2027,6 +2099,23 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.62); paddin
   .area-amplia-icono { width: 62px; height: 62px; }
   .grupo-card { min-height: auto; }
   .grupo-copy .btn { width: 100%; }
+  .quienes-card-bg {
+    background-position: center;
+  }
+  .quienes-mosaico {
+    display: grid;
+    gap: 16px;
+    min-height: auto;
+  }
+  .quienes-mosaico .quienes-mosaico-principal,
+  .quienes-mosaico .quienes-mosaico-secundaria {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+  .quienes-mosaico .quienes-mosaico-secundaria {
+    position: static;
+    border: 0;
+  }
   .hero-empresas { min-height: auto; padding: 118px 0 48px; }
   .empresas-recorrido { padding-top: 56px; }
   .empresas-pista {
