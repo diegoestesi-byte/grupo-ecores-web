@@ -19,11 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const scrollToPanel = (index) => {
     const targetIndex = Math.max(0, Math.min(index, panels.length - 1));
+    const targetPanel = panels[targetIndex];
+    const targetLeft = targetPanel.offsetLeft - (pista.clientWidth - targetPanel.clientWidth) / 2;
 
-    panels[targetIndex].scrollIntoView({
+    pista.scrollTo({
+      left: targetLeft,
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
     });
 
     setActive(targetIndex);
