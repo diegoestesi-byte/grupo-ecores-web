@@ -845,11 +845,14 @@ a { color: inherit; }
 .nodo {
   position: absolute;
   width: 235px;
-  min-height: 135px;
-  background: rgba(255,255,255,.72);
+  min-height: 116px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(255,255,255,.88);
   border: 1px solid var(--piedra);
   border-radius: 8px;
-  padding: 18px 20px;
+  padding: 14px 20px;
   z-index: 3;
   box-shadow: 0 12px 28px rgba(18,60,40,.08);
 }
@@ -865,15 +868,17 @@ a { color: inherit; }
   box-shadow: 0 0 0 1px rgba(47,104,71,.25);
 }
 
-.nodo h3 {
-  font-size: 12px;
-  letter-spacing: .11em;
-  text-transform: uppercase;
-  color: var(--verde-bosque);
-  margin-bottom: 8px;
+.ecosistema-logo {
+  width: 100%;
+  max-width: 190px;
+  height: 84px;
+  object-fit: contain;
+  transform-origin: center;
 }
 
-.nodo p { font-size: 12.5px; color: var(--texto-medio); line-height: 1.55; }
+.ecosistema-logo-nothofagus { transform: scale(1.18); }
+.ecosistema-logo-ecores { transform: scale(1.08); }
+.ecosistema-logo-ciires { transform: scale(1.38); }
 
 .nodo-1 { top: 0; left: 50%; transform: translateX(-50%); }
 .nodo-1::before { left: 50%; bottom: -7px; transform: translateX(-50%); }
@@ -1109,7 +1114,8 @@ a { color: inherit; }
 
 .empresa-card-head {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
   margin-bottom: 24px;
 }
@@ -1139,6 +1145,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
+  overflow: hidden;
   padding: 16px 22px;
   border: 1px solid rgba(18,60,40,.12);
   border-radius: 6px;
@@ -1151,7 +1158,14 @@ a { color: inherit; }
   max-width: 210px;
   height: 66px;
   object-fit: contain;
+  transform-origin: center;
 }
+
+.empresa-panel-huge .empresa-logo { transform: scale(1.16); }
+.empresa-panel-nothofagus .empresa-logo { transform: scale(1.55); }
+.empresa-panel-vivero .empresa-logo { transform: scale(1.14); }
+.empresa-panel-ecores .empresa-logo { transform: scale(1.32); }
+.empresa-panel-ciires .empresa-logo { transform: scale(1.90); }
 
 .empresa-rubro {
   margin-bottom: 10px;
@@ -1764,10 +1778,31 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
     min-height: 170px;
     padding: 28px;
   }
-  .ecosistema-circular { display: block; min-height: auto; }
+  .ecosistema-circular {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    min-height: auto;
+  }
   .ecosistema-orbita { display: none; }
-  .ecosistema-centro { margin: 0 auto 28px; width: 220px; min-height: 220px; }
-  .nodo { position: relative; inset: auto; transform: none; width: 100%; margin-bottom: 14px; }
+  .ecosistema-centro {
+    grid-column: 1 / -1;
+    margin: 0 auto 12px;
+    width: 220px;
+    min-height: 220px;
+  }
+  .nodo {
+    position: relative;
+    inset: auto;
+    transform: none;
+    width: 100%;
+    min-height: 112px;
+  }
+  .nodo-5 {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 8px);
+  }
   .nodo::before { display: none; }
   .contacto-grid { grid-template-columns: 1fr; gap: 30px; }
   .contacto-formulario { padding: 34px; }
@@ -1839,19 +1874,24 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
   }
   .empresa-card-head {
     align-items: flex-start;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 12px;
     margin-bottom: 18px;
   }
   .empresa-logo-box {
-    width: min(210px, 100%);
-    height: 78px;
-    padding: 12px 15px;
+    width: min(172px, calc(100% - 82px));
+    height: 70px;
+    padding: 10px 12px;
   }
   .empresa-logo {
-    max-width: 180px;
-    height: 50px;
+    max-width: 148px;
+    height: 46px;
   }
+  .ecosistema-circular { grid-template-columns: 1fr; gap: 14px; }
+  .ecosistema-centro,
+  .nodo-5 { grid-column: auto; }
+  .nodo-5 { width: 100%; }
   .empresa-panel h3 { font-size: 31px; }
   .empresa-num {
     min-height: 30px;
