@@ -772,6 +772,7 @@ a { color: inherit; }
 .cifra { text-align: center; padding: 44px 26px; border-right: 1px solid rgba(245,240,231,.10); }
 .cifra:last-child { border-right: 0; }
 .cifra-num { font-family: 'Lora', Georgia, serif; font-size: clamp(38px, 5vw, 58px); font-weight: 700; line-height: 1; margin-bottom: 10px; }
+.cifra-num--larga { display: flex; align-items: center; justify-content: center; min-height: clamp(38px, 5vw, 58px); font-size: clamp(38px, 4vw, 52px); white-space: nowrap; }
 .cifra-label { color: rgba(245,240,231,.64); font-size: 13px; }
 .cifra-nota { margin-top: 16px; text-align: center; font-size: 11px; color: rgba(245,240,231,.28); font-style: italic; }
 
@@ -1772,6 +1773,7 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
   .monitoreo { left: 58px; }
   .innovacion { left: 0; }
   .cifras-grid, .areas-grid { grid-template-columns: 1fr 1fr; }
+  .cifra-num--larga { font-size: clamp(38px, 5vw, 58px); }
   .ser-logo-box {
     justify-self: start;
     width: min(320px, 100%);
