@@ -1,0 +1,41 @@
+name: Deploy Grupo ECORES
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Publicar sitio por FTP
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+        run: |
+          lftp -c "
+          set net:max-retries 3;
+          set net:timeout 30;
+          set ftp:ssl-allow true;
+          open -p \"$FTP_PORT\" -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+          mirror --reverse \
+            --verbose \
+            --exclude-glob .git/ \
+            --exclude-glob .github/ \
+            --exclude-glob README.md \
+            --exclude-glob Thumbs.db \
+            --exclude-glob .DS_Store \
+            ./ ./;
+          bye
+          "
