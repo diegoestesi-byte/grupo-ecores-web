@@ -831,99 +831,150 @@ a { color: inherit; }
 
 /* Ecosistema circular */
 .ecosistema { background: var(--marfil); }
-.ecosistema-header { text-align: center; max-width: 780px; margin: 0 auto 62px; }
+.ecosistema-header { text-align: center; max-width: 780px; margin: 0 auto 130px; }
 .ecosistema-header .bajada { margin: 0 auto; }
 
 .ecosistema-circular {
   position: relative;
-  min-height: 640px;
+  min-height: 780px;
   display: grid;
   place-items: center;
   margin: 0 auto;
-  max-width: 1040px;
+  max-width: 1100px;
+  isolation: isolate;
 }
 
 .ecosistema-orbita {
   position: absolute;
-  width: min(560px, 58vw);
+  width: min(650px, 62vw);
   aspect-ratio: 1;
-  border: 1px solid rgba(47,104,71,.25);
+  border: 2px solid rgba(47,104,71,.54);
   border-radius: 50%;
+  box-shadow:
+    0 0 0 22px rgba(47,104,71,.025),
+    0 0 0 44px rgba(47,104,71,.018);
 }
 
-.ecosistema-orbita::before, .ecosistema-orbita::after {
-  content: '';
+.ecosistema-orbita::before,
+.ecosistema-orbita::after {
+  content: '→';
   position: absolute;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
   border-radius: 50%;
-  border: 1px solid rgba(47,104,71,.16);
-  inset: 13%;
+  background: var(--marfil);
+  color: var(--verde-medio);
+  font-size: 27px;
+  line-height: 1;
+  font-weight: 400;
+  box-shadow: 0 0 0 8px var(--marfil);
 }
 
-.ecosistema-orbita::after { inset: 28%; opacity: .65; }
+.ecosistema-orbita::before {
+  top: 13%;
+  right: 4%;
+  transform: rotate(54deg);
+}
+
+.ecosistema-orbita::after {
+  bottom: 13%;
+  left: 4%;
+  transform: rotate(234deg);
+}
 
 .ecosistema-centro {
-  width: 245px;
-  min-height: 245px;
+  position: relative;
+  width: 430px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: var(--verde-bosque);
+  overflow: hidden;
+  background: var(--verde-claro);
   color: var(--marfil);
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 28px;
+  border: 3px solid rgba(245,240,231,.82);
   z-index: 2;
-  box-shadow: 0 18px 45px rgba(18,60,40,.18);
+  box-shadow:
+    0 24px 65px rgba(18,60,40,.20),
+    0 0 0 1px rgba(18,60,40,.08);
+}
+
+.ecosistema-centro::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 54% 42% at 50% 49%,
+      rgba(245,240,231,.96) 0%,
+      rgba(245,240,231,.84) 28%,
+      rgba(245,240,231,.54) 48%,
+      rgba(245,240,231,.18) 66%,
+      rgba(245,240,231,0) 80%),
+    radial-gradient(circle at center, transparent 54%, rgba(18,60,40,.11) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ecosistema-centro-paisaje {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .ecosistema-centro-contenido {
-  width: 100%;
+  position: relative;
+  z-index: 2;
+  width: min(285px, calc(100% - 56px));
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  padding: 0;
 }
 
 .ecosistema-centro-logo {
-  width: 178px;
-  height: 104px;
-  padding: 6px 8px;
+  width: 230px;
+  height: 114px;
   object-fit: contain;
-  border-radius: 8px;
-  background: rgba(255,255,255,.96);
+  filter:
+    drop-shadow(0 1px 1px rgba(245,240,231,.95))
+    drop-shadow(0 4px 10px rgba(11,36,24,.22));
 }
 
 .ecosistema-centro span {
   display: block;
-  max-width: 178px;
-  font-size: 12px;
-  line-height: 1.4;
-  color: rgba(245,240,231,.78);
+  max-width: 245px;
+  font-size: 13px;
+  line-height: 1.38;
+  color: var(--verde-profundo);
+  font-weight: 600;
+  text-shadow:
+    0 1px 5px rgba(245,240,231,.96),
+    0 0 12px rgba(245,240,231,.90);
 }
 
 .nodo {
   position: absolute;
-  width: 235px;
-  min-height: 116px;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  background: rgba(255,255,255,.88);
-  border: 1px solid var(--piedra);
-  border-radius: 8px;
-  padding: 14px 20px;
+  width: 220px;
+  min-height: 138px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 3;
-  box-shadow: 0 12px 28px rgba(18,60,40,.08);
 }
 
-.nodo::before {
-  content: '';
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--verde-medio);
-  border: 3px solid var(--marfil);
-  box-shadow: 0 0 0 1px rgba(47,104,71,.25);
+.nodo-marca {
+  width: 100%;
+  height: 98px;
+  display: grid;
+  place-items: center;
+  overflow: visible;
+  padding: 4px 12px 10px;
 }
 
 .ecosistema-logo {
@@ -932,22 +983,38 @@ a { color: inherit; }
   height: 84px;
   object-fit: contain;
   transform-origin: center;
+  filter: drop-shadow(0 5px 8px rgba(18,60,40,.12));
 }
 
-.ecosistema-logo-nothofagus { transform: scale(1.18); }
+.ecosistema-logo-nothofagus { transform: scale(1.14); }
 .ecosistema-logo-ecores { transform: scale(1.08); }
-.ecosistema-logo-ciires { transform: scale(1.38); }
+.ecosistema-logo-ciires { transform: scale(1.32); }
 
-.nodo-1 { top: 0; left: 50%; transform: translateX(-50%); }
-.nodo-1::before { left: 50%; bottom: -7px; transform: translateX(-50%); }
-.nodo-2 { top: 145px; right: 0; }
-.nodo-2::before { left: -7px; top: 50%; transform: translateY(-50%); }
-.nodo-3 { bottom: 32px; right: 110px; }
-.nodo-3::before { left: 20px; top: -7px; }
-.nodo-4 { bottom: 32px; left: 110px; }
-.nodo-4::before { right: 20px; top: -7px; }
-.nodo-5 { top: 145px; left: 0; }
-.nodo-5::before { right: -7px; top: 50%; transform: translateY(-50%); }
+.nodo-icono {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  margin-top: -5px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--verde-salvia);
+  border-radius: 50%;
+  background: var(--marfil);
+  box-shadow: 0 7px 18px rgba(18,60,40,.10);
+}
+
+.nodo-icono img {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
+
+.nodo-1 { top: -92px; left: 50%; transform: translateX(-50%); }
+.nodo-2 { top: 175px; right: 0; }
+.nodo-3 { right: 122px; bottom: 20px; }
+.nodo-4 { bottom: 20px; left: 122px; }
+.nodo-5 { top: 175px; left: 0; }
 
 .ecosistema-cta { text-align: center; margin-top: 18px; }
 
@@ -1890,32 +1957,32 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
     min-height: 170px;
     padding: 28px;
   }
+  .ecosistema-header { margin-bottom: 62px; }
   .ecosistema-circular {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    gap: 24px 18px;
     min-height: auto;
+    max-width: 680px;
   }
   .ecosistema-orbita { display: none; }
   .ecosistema-centro {
     grid-column: 1 / -1;
-    margin: 0 auto 12px;
-    width: 220px;
-    min-height: 220px;
+    margin: 0 auto 18px;
+    width: min(380px, 70vw);
   }
   .nodo {
     position: relative;
     inset: auto;
     transform: none;
     width: 100%;
-    min-height: 112px;
+    min-height: 138px;
   }
   .nodo-5 {
     grid-column: 1 / -1;
     justify-self: center;
     width: calc(50% - 8px);
   }
-  .nodo::before { display: none; }
   .contacto-grid { grid-template-columns: 1fr; gap: 30px; }
   .contacto-formulario { padding: 34px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -2021,24 +2088,35 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
     max-width: 148px;
     height: 46px;
   }
-  .ecosistema-circular { grid-template-columns: 1fr; gap: 14px; }
+  .ecosistema-circular {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 340px;
+  }
   .ecosistema-centro,
   .nodo-5 { grid-column: auto; }
   .ecosistema-centro {
-    width: 200px;
-    min-height: 200px;
-    padding: 22px;
+    width: min(320px, 88vw);
+    margin-bottom: 12px;
   }
-  .ecosistema-centro-contenido { gap: 9px; }
+  .ecosistema-centro-contenido {
+    width: min(225px, calc(100% - 50px));
+    gap: 7px;
+    padding: 12px 15px;
+  }
   .ecosistema-centro-logo {
-    width: 142px;
-    height: 86px;
-    padding: 5px 7px;
+    width: 170px;
+    height: 78px;
   }
   .ecosistema-centro span {
-    max-width: 150px;
-    font-size: 10.5px;
+    max-width: 200px;
+    font-size: 11.5px;
     line-height: 1.35;
+  }
+  .nodo {
+    width: 100%;
+    max-width: 320px;
+    justify-self: center;
   }
   .nodo-5 { width: 100%; }
   .empresa-panel h3 { font-size: clamp(28px, 8.5vw, 31px); }
