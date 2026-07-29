@@ -36,10 +36,22 @@
     estado.textContent = resultado.texto;
     estado.classList.add(`formulario-estado--${resultado.tipo}`);
     estado.hidden = false;
+    window.requestAnimationFrame(function () {
+      estado.classList.add('formulario-estado--visible');
+    });
     estado.scrollIntoView({ block: 'nearest' });
 
     url.searchParams.delete('estado');
     window.history.replaceState({}, document.title, `${url.pathname}${url.search}${url.hash}`);
+
+    if (resultado.tipo === 'exito') {
+      window.setTimeout(function () {
+        estado.classList.remove('formulario-estado--visible');
+        window.setTimeout(function () {
+          estado.hidden = true;
+        }, 350);
+      }, 7000);
+    }
   }
 
   formulario.addEventListener('submit', function () {

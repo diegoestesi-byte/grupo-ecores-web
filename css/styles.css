@@ -1724,6 +1724,14 @@ a { color: inherit; }
   border-radius: 4px;
   font-size: 13.5px;
   line-height: 1.55;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.formulario-estado--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .formulario-estado--exito {
