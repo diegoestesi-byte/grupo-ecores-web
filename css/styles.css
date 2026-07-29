@@ -829,9 +829,9 @@ a { color: inherit; }
 .area-desc { color: var(--texto-suave); font-size: 13.5px; flex: 1; }
 .area-link { font-size: 11px; font-weight: 700; color: var(--verde-medio); letter-spacing: .09em; text-transform: uppercase; margin-top: 18px; }
 
-/* Ecosistema circular */
+/* Ecosistema de empresas */
 .ecosistema { background: var(--marfil); }
-.ecosistema-header { text-align: center; max-width: 780px; margin: 0 auto 130px; }
+.ecosistema-header { text-align: center; max-width: 780px; margin: 0 auto 74px; }
 .ecosistema-header .bajada { margin: 0 auto; }
 
 .ecosistema-circular {
@@ -1017,6 +1017,103 @@ a { color: inherit; }
 .nodo-5 { top: 175px; left: 0; }
 
 .ecosistema-cta { text-align: center; margin-top: 18px; }
+
+/* Organigrama abreviado — alternativa 04 */
+.ecosistema-organigrama {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  min-height: 420px;
+  margin: 0 auto;
+}
+
+.ecosistema-grupo {
+  width: min(350px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ecosistema-grupo img {
+  display: block;
+  width: 250px;
+  height: 116px;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(18,60,40,.10));
+}
+
+.ecosistema-grupo p {
+  max-width: 310px;
+  margin: 4px auto 0;
+  color: var(--verde-profundo);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.ecosistema-conector {
+  position: relative;
+  width: calc(80% + 1px);
+  height: 58px;
+  margin: 24px auto 0;
+  border-top: 1px solid rgba(47,104,71,.58);
+  border-right: 1px solid rgba(47,104,71,.58);
+  border-left: 1px solid rgba(47,104,71,.58);
+}
+
+.ecosistema-conector::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 25px;
+  border-left: 1px solid rgba(47,104,71,.58);
+}
+
+.ecosistema-unidades {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ecosistema-unidad {
+  position: relative;
+  min-width: 0;
+  text-align: center;
+}
+
+.ecosistema-unidad::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 18px;
+  border-left: 1px solid rgba(47,104,71,.58);
+}
+
+.ecosistema-unidad .ecosistema-logo {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  height: 82px;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 8px rgba(18,60,40,.10));
+}
+
+.ecosistema-unidad .ecosistema-logo-nothofagus { transform: scale(1.10); }
+.ecosistema-unidad .ecosistema-logo-ecores { transform: scale(1.04); }
+.ecosistema-unidad .ecosistema-logo-ciires { transform: scale(1.17); }
+
+.ecosistema-unidad p {
+  max-width: 176px;
+  margin: 12px auto 0;
+  color: var(--texto-medio);
+  font-size: 11.5px;
+  line-height: 1.42;
+}
+
+.ecosistema-organigrama + .ecosistema-cta { margin-top: 34px; }
 
 /* Sectores */
 .sectores { background: var(--blanco); padding: 82px 0; }
@@ -1620,6 +1717,35 @@ a { color: inherit; }
   gap: 22px;
 }
 
+.formulario-estado {
+  margin-bottom: 24px;
+  padding: 15px 17px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.formulario-estado--exito {
+  border-color: rgba(47,104,71,.32);
+  background: rgba(47,104,71,.09);
+  color: var(--verde-profundo);
+}
+
+.formulario-estado--error {
+  border-color: rgba(153,58,42,.28);
+  background: rgba(153,58,42,.08);
+  color: #762f24;
+}
+
+.campo-trampa {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
 .campo {
   display: grid;
   gap: 8px;
@@ -1684,6 +1810,11 @@ a { color: inherit; }
   justify-self: start;
   border: 0;
   cursor: pointer;
+}
+
+.contacto-submit:disabled {
+  cursor: wait;
+  opacity: .72;
 }
 
 .contacto-lateral {
@@ -1983,6 +2114,20 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
     justify-self: center;
     width: calc(50% - 8px);
   }
+  .ecosistema-organigrama {
+    max-width: 760px;
+    min-height: 390px;
+  }
+  .ecosistema-conector { width: calc(80% + 1px); }
+  .ecosistema-unidades { gap: 8px; }
+  .ecosistema-unidad .ecosistema-logo {
+    max-width: 132px;
+    height: 70px;
+  }
+  .ecosistema-unidad p {
+    max-width: 135px;
+    font-size: 10.5px;
+  }
   .contacto-grid { grid-template-columns: 1fr; gap: 30px; }
   .contacto-formulario { padding: 34px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -2119,6 +2264,70 @@ footer { background: var(--verde-profundo); color: rgba(245,240,231,.78); paddin
     justify-self: center;
   }
   .nodo-5 { width: 100%; }
+  .ecosistema-header { margin-bottom: 48px; }
+  .ecosistema-organigrama {
+    max-width: 350px;
+    min-height: auto;
+  }
+  .ecosistema-grupo img {
+    width: 220px;
+    height: 104px;
+  }
+  .ecosistema-grupo p {
+    max-width: 285px;
+    font-size: 12.5px;
+  }
+  .ecosistema-conector {
+    width: 1px;
+    height: 52px;
+    margin: 23px 0 0 18px;
+    border: 0;
+    border-left: 1px solid rgba(47,104,71,.58);
+  }
+  .ecosistema-conector::before { display: none; }
+  .ecosistema-unidades {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .ecosistema-unidades::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 56px;
+    left: 18px;
+    border-left: 1px solid rgba(47,104,71,.58);
+  }
+  .ecosistema-unidad {
+    display: grid;
+    grid-template-columns: 142px 1fr;
+    align-items: center;
+    min-height: 112px;
+    padding: 12px 0 12px 36px;
+    text-align: left;
+  }
+  .ecosistema-unidad::before {
+    top: 50%;
+    bottom: auto;
+    left: 18px;
+    width: 18px;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(47,104,71,.58);
+  }
+  .ecosistema-unidad .ecosistema-logo {
+    width: 132px;
+    height: 68px;
+    margin: 0;
+  }
+  .ecosistema-unidad p {
+    max-width: 150px;
+    margin: 0;
+    padding-left: 8px;
+    font-size: 11px;
+    text-align: left;
+  }
+  .ecosistema-organigrama + .ecosistema-cta { margin-top: 28px; }
   .empresa-panel h3 { font-size: clamp(28px, 8.5vw, 31px); }
   .empresa-num {
     min-height: 30px;
