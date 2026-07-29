@@ -13,7 +13,7 @@
   const mensajes = {
     enviado: {
       tipo: 'exito',
-      texto: 'Tu consulta fue enviada correctamente. Recibirás una respuesta desde contacto@grupoecores.cl.'
+      texto: 'Tu consulta fue enviada correctamente. Recibirás una respuesta del equipo de Grupo ECORES.'
     },
     invalido: {
       tipo: 'error',
@@ -25,7 +25,7 @@
     },
     error: {
       tipo: 'error',
-      texto: 'No pudimos enviar tu consulta. También puedes escribir a contacto@grupoecores.cl.'
+      texto: 'No pudimos enviar tu consulta. También puedes escribir a pbravo@grupoecores.cl.'
     }
   };
 
