@@ -1825,6 +1825,15 @@ a { color: inherit; }
   opacity: .72;
 }
 
+.contacto-privacidad {
+  grid-column: 1 / -1;
+  max-width: 580px;
+  margin: -8px 0 0;
+  color: rgba(36,51,43,.68);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
 .contacto-lateral {
   display: grid;
   gap: 22px;
