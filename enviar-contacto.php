@@ -186,6 +186,7 @@ try {
     $_SESSION['grupoecores_last_contact'] = $now;
     redirect_with_status('enviado');
 } catch (Exception $exception) {
-    error_log('Grupo ECORES contacto: fallo el envío SMTP.');
+    $errorDetail = preg_replace('/\R/u', ' ', $exception->getMessage()) ?? 'Error SMTP sin detalle';
+    error_log('Grupo ECORES contacto: ' . substr($errorDetail, 0, 500));
     redirect_with_status('error');
 }
