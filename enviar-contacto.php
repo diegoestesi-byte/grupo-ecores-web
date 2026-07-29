@@ -84,21 +84,21 @@ if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL
 $configPath = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'grupoecores-mail-config.php';
 
 if (!is_file($configPath) || !is_readable($configPath)) {
-    error_log('Grupo ECORES contacto: no se encontró la configuración SMTP privada.');
+    error_log('Grupo ECORES contacto: no se encontró la configuración privada de correo.');
     redirect_with_status('error');
 }
 
 $config = require $configPath;
-$requiredConfig = ['host', 'port', 'encryption', 'username', 'password', 'recipient'];
+$requiredConfig = ['username', 'recipient'];
 
 if (!is_array($config)) {
-    error_log('Grupo ECORES contacto: configuración SMTP inválida.');
+    error_log('Grupo ECORES contacto: configuración privada de correo inválida.');
     redirect_with_status('error');
 }
 
 foreach ($requiredConfig as $key) {
     if (!isset($config[$key]) || $config[$key] === '') {
-        error_log('Grupo ECORES contacto: falta un valor en la configuración SMTP.');
+        error_log('Grupo ECORES contacto: falta un valor en la configuración privada de correo.');
         redirect_with_status('error');
     }
 }
@@ -163,16 +163,9 @@ $vcard = "BEGIN:VCARD\r\n"
 
 try {
     $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host = (string) $config['host'];
-    $mail->Port = (int) $config['port'];
-    $mail->SMTPAuth = true;
-    $mail->Username = (string) $config['username'];
-    $mail->Password = (string) $config['password'];
-    $mail->SMTPSecure = strtolower((string) $config['encryption']) === 'ssl'
-        ? PHPMailer::ENCRYPTION_SMTPS
-        : PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->isMail();
     $mail->CharSet = PHPMailer::CHARSET_UTF8;
+    $mail->Sender = (string) $config['username'];
     $mail->setFrom((string) $config['username'], 'Sitio web Grupo ECORES');
     $mail->addAddress((string) $config['recipient'], 'Grupo ECORES');
     $mail->addReplyTo($email, $name);
@@ -186,7 +179,7 @@ try {
     $_SESSION['grupoecores_last_contact'] = $now;
     redirect_with_status('enviado');
 } catch (Exception $exception) {
-    $errorDetail = preg_replace('/\R/u', ' ', $exception->getMessage()) ?? 'Error SMTP sin detalle';
-    error_log('Grupo ECORES contacto: ' . substr($errorDetail, 0, 500));
+    $errorDetail = preg_replace('/\R/u', ' ', $exception->getMessage()) ?? 'Error de correo sin detalle';
+    error_log('Grupo ECORES contacto: fallo del transporte local: ' . substr($errorDetail, 0, 500));
     redirect_with_status('error');
 }
